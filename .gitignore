@@ -1,0 +1,11 @@
+##########################
+# Unreal Generated Files #
+##########################
+
+*/Binaries
+*/DerivedDataCache
+*/Intermediate/
+*/Saved/
+*/.vs
+BuildingEscape/Content/StarterContent/
+
