@@ -32,3 +32,4 @@ void UPositionReport::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	// ...
 }
 
+// this is for safety
