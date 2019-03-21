@@ -8,8 +8,10 @@
 */Saved/
 */.vs
 BuildingEscape/Content/StarterContent/
+*/.sqlite
 
 ######################
 # VS Generated Files #
 ######################
 *.VC.db
+.vs/
