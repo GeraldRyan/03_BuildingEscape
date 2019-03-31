@@ -1,6 +1,7 @@
 // Copyright Gerald Ryan 2019
 
 #include "OpenTheDoor.h"
+#include "Engine/World.h"
 #include "Classes/Components/PrimitiveComponent.h"
 
 
@@ -20,6 +21,7 @@ void UOpenTheDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
 
 	
 }
