@@ -7,11 +7,14 @@
 */Intermediate/
 */Saved/
 */.vs
-BuildingEscape/Content/StarterContent/
+BuildingEscape/Content/StarterContent/Textures
+BuildingEscape/Content/StarterContent/HDRI
 */.sqlite
+*CookerOpenOrder.log
 
 ######################
 # VS Generated Files #
 ######################
 *.VC.db
 .vs/
+BuildingEscape/Build/WindowsServer/FileOpenOrder/CookerOpenOrder.log
