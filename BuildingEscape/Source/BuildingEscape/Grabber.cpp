@@ -1,6 +1,10 @@
 // Copyright Gerald Ryan 2019
 
 #include "Grabber.h"
+#include "Runtime/Engine/Classes/GameFramework/Actor.h"
+#include "Engine/World.h"
+
+#define OUT
 
 
 // Sets default values for this component's properties
@@ -18,7 +22,7 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Grabber Reporting for Booty"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber Reporting for Booty"));
 	// ...
 	
 }
@@ -29,6 +33,19 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Get player viewpoint this tick
+	FVector PlayerViewpointLocation;
+	FRotator PlayerViewpointRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+	OUT PlayerViewpointLocation, 
+	OUT PlayerViewpointRotation
+	);
+	UE_LOG(LogTemp, Warning, TEXT("The location is %s and the rotation is %s"), *PlayerViewpointLocation.ToString(), *PlayerViewpointRotation.ToString())
+
+	//Ray-cast out to reach distance
+
+	// see what we hit
+
+
 }
 
