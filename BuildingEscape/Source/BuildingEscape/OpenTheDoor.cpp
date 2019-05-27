@@ -5,6 +5,8 @@
 #include "Classes/Components/PrimitiveComponent.h"
 
 
+#define OUT
+
 // Sets default values for this component's properties
 UOpenTheDoor::UOpenTheDoor()
 {
@@ -20,8 +22,6 @@ UOpenTheDoor::UOpenTheDoor()
 void UOpenTheDoor::BeginPlay()
 {
 	Super::BeginPlay();
-
-	ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
 	Owner = GetOwner();
 
 
@@ -48,7 +48,7 @@ void UOpenTheDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 
 	// Poll the Trigger Volume 
 
-	if(PressurePlate->IsOverlappingActor(ActorThatOpens))
+	if(GetTotalMassOfActorsOnPlate() > 30.f) // TODO make into a parameter
 	{
 	// If the ActorThatOpens is in the volume, then open door
 		OpenTheDoor();
@@ -59,3 +59,19 @@ void UOpenTheDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime > DoorCloseDelay) { CloseDoor(); }
 }
 
+float UOpenTheDoor::GetTotalMassOfActorsOnPlate()
+{
+	float TotalMass = 0.f;
+
+	// find all overlapping actors
+	TArray<AActor*> OverlappingActors;
+	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
+
+	// iterate through them adding their masses
+	FString JoinedStr;
+	for (const auto* Actor : OverlappingActors)
+	{
+		TotalMass += Actor->FindComponentByClass<UPrimitiveComponent>()->GetMass();
+	}
+	return TotalMass;
+}

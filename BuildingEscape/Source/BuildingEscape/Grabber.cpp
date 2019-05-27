@@ -69,9 +69,6 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 
 void UGrabber::Grab()
 {
-	UE_LOG(LogTemp, Error, TEXT("Grab Pressed"))
-
-
 	// Line Trace and see if we reach any actors with physics body collision set
 	auto HitResult = GetFirstPhysicsBodyInReach(); 
 	auto ComponentToGrab = HitResult.GetComponent();   // gets the mesh in our case
