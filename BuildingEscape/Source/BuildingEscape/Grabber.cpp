@@ -97,16 +97,16 @@ void UGrabber::Release()
 const FHitResult UGrabber::GetFirstPhysicsBodyInReach()
 {
 		///// Draw a red trace in world to visualize
-		//DrawDebugLine(
-		//	GetWorld(),
-		//	GetReachLineStart(),
-		//	GetReachLineEnd(),
-		//	FColor(255, 0, 0),
-		//	false,
-		//	0.f,
-		//	0.f,
-		//	5.f
-	//);
+		DrawDebugLine(
+		GetWorld(),
+		GetReachLineStart(),
+		GetReachLineEnd(),
+		FColor(255, 0, 0),
+		false,
+		0.f,
+		0.f,
+		5.f
+	);
 
 	// set up query parameters
 	FCollisionQueryParams TraceParameters(FName(TEXT("")), false, GetOwner());
